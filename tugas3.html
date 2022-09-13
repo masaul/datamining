@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Implementasi K-NN pada datase iris (Tugas 3) &#8212; My sample book</title>
+    <title>Implementasi K-NN pada dataset iris (Tugas 3) &#8212; My sample book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -121,7 +121,7 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    <strong>
-    Implementasi K-NN pada datase iris (Tugas 3)
+    Implementasi K-NN pada dataset iris (Tugas 3)
    </strong>
   </a>
  </li>
@@ -332,6 +332,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#konsep-k-nn">
+   Konsep k-NN
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mendapatkan-dataset-iris">
    Mendapatkan dataset iris
   </a>
@@ -357,13 +362,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-nilai-n-neighboars">
-   check nilai n_neighboars
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-rata-rata-nilai-n-neighboard">
-   check rata-rata nilai n_neighboard
+  <a class="reference internal nav-link" href="#hasil">
+   Hasil
   </a>
  </li>
 </ul>
@@ -375,7 +375,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Implementasi K-NN pada datase iris (Tugas 3)</h1>
+                <h1>Implementasi K-NN pada dataset iris (Tugas 3)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -385,6 +385,11 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#konsep-k-nn">
+   Konsep k-NN
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mendapatkan-dataset-iris">
    Mendapatkan dataset iris
@@ -411,13 +416,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-nilai-n-neighboars">
-   check nilai n_neighboars
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-rata-rata-nilai-n-neighboard">
-   check rata-rata nilai n_neighboard
+  <a class="reference internal nav-link" href="#hasil">
+   Hasil
   </a>
  </li>
 </ul>
@@ -430,8 +430,21 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="implementasi-k-nn-pada-datase-iris-tugas-3">
-<h1><strong>Implementasi K-NN pada datase iris (Tugas 3)</strong><a class="headerlink" href="#implementasi-k-nn-pada-datase-iris-tugas-3" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="implementasi-k-nn-pada-dataset-iris-tugas-3">
+<h1><strong>Implementasi K-NN pada dataset iris (Tugas 3)</strong><a class="headerlink" href="#implementasi-k-nn-pada-dataset-iris-tugas-3" title="Permalink to this headline">#</a></h1>
+<section id="konsep-k-nn">
+<h2>Konsep k-NN<a class="headerlink" href="#konsep-k-nn" title="Permalink to this headline">#</a></h2>
+<p>k-NN (k-Nearest-Neighbors) merupakan sebuah algoritma yang digunakan untuk menentukan sebuah label dari data labeh yang sudah tersedia.
+k-NN ini memeliki 5 algoritma yang digunakan</p>
+<ol class="simple">
+<li><p>Menentukan nilai K</p></li>
+<li><p>Menghitung jarak antara data uji dengan data latih (menggunakan Minkowski Distance)</p></li>
+<li><p>Mengurutkan jarak dari terkecil hingga terbesar (Ascending)</p></li>
+<li><p>Mengambil data sebanyak K terdekat</p></li>
+<li><p>Memilih kelas</p></li>
+</ol>
+<p>Menghitung jarak dengan cara data latih - data uji pada setiap fitur/label yang digunakan. kemudian jumlahkan.</p>
+<p>Jika jumlah hasil label tersebut sama, maka bisa juga dipilih salah satu.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -441,6 +454,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
 <section id="mendapatkan-dataset-iris">
 <h2>Mendapatkan dataset iris<a class="headerlink" href="#mendapatkan-dataset-iris" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
@@ -452,7 +466,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-72795a7b-bb8a-4e4a-bbbb-e6f479413e92">
+  <div id="df-466e7fa8-548a-4e1d-bed8-69a474075917">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -572,7 +586,7 @@ title="Print to PDF"
 </table>
 <p>150 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-72795a7b-bb8a-4e4a-bbbb-e6f479413e92')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-466e7fa8-548a-4e1d-bed8-69a474075917')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -623,12 +637,12 @@ title="Print to PDF"
 
       <script>
         const buttonEl =
-          document.querySelector('#df-72795a7b-bb8a-4e4a-bbbb-e6f479413e92 button.colab-df-convert');
+          document.querySelector('#df-466e7fa8-548a-4e1d-bed8-69a474075917 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-72795a7b-bb8a-4e4a-bbbb-e6f479413e92');
+          const element = document.querySelector('#df-466e7fa8-548a-4e1d-bed8-69a474075917');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -652,6 +666,7 @@ title="Print to PDF"
 </section>
 <section id="membuat-dataframe">
 <h2>Membuat dataframe<a class="headerlink" href="#membuat-dataframe" title="Permalink to this headline">#</a></h2>
+<p>Label yang diguanakan adalah variety</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;variety&#39;</span><span class="p">])</span>
@@ -662,12 +677,16 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;variety&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">29</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;,
+       &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;,
+       &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;,
+       &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;,
+       &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -675,6 +694,7 @@ title="Print to PDF"
 </section>
 <section id="split-dataset-data-uji-dengan-data-latih">
 <h2>Split dataset data uji dengan data latih<a class="headerlink" href="#split-dataset-data-uji-dengan-data-latih" title="Permalink to this headline">#</a></h2>
+<p>Ukuran data yang diguanakan adalah 20% dari data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -686,16 +706,17 @@ title="Print to PDF"
 </section>
 <section id="membangun-model">
 <h2>Membangun model<a class="headerlink" href="#membangun-model" title="Permalink to this headline">#</a></h2>
+<p>K yang digunakan sebanyak 15</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
-<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=3)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=15)
 </pre></div>
 </div>
 </div>
@@ -703,15 +724,20 @@ title="Print to PDF"
 </section>
 <section id="test-model">
 <h2>Test model<a class="headerlink" href="#test-model" title="Permalink to this headline">#</a></h2>
+<p>Label yang diambil sebanyak 29 data yang sudah tersedia</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">29</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Virginica&#39;, &#39;Setosa&#39;, &#39;Versicolor&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;],
-      dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Virginica&#39;, &#39;Setosa&#39;, &#39;Versicolor&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;,
+       &#39;Virginica&#39;, &#39;Virginica&#39;, &#39;Virginica&#39;, &#39;Versicolor&#39;, &#39;Setosa&#39;,
+       &#39;Versicolor&#39;, &#39;Virginica&#39;, &#39;Versicolor&#39;, &#39;Virginica&#39;, &#39;Setosa&#39;,
+       &#39;Virginica&#39;, &#39;Versicolor&#39;, &#39;Versicolor&#39;, &#39;Virginica&#39;, &#39;Versicolor&#39;,
+       &#39;Versicolor&#39;, &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Virginica&#39;, &#39;Versicolor&#39;,
+       &#39;Setosa&#39;, &#39;Setosa&#39;, &#39;Versicolor&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -749,58 +775,10 @@ cv_scores mean:0.9666666666666668
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
-
-<span class="n">knn2</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
-
-<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">)}</span>
-
-<span class="n">knn_gscv</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">knn2</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="n">knn_gscv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=5, estimator=KNeighborsClassifier(),
-             param_grid={&#39;n_neighbors&#39;: array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
-       18, 19, 20, 21, 22, 23, 24])})
-</pre></div>
-</div>
-</div>
-</div>
 </section>
-<section id="check-nilai-n-neighboars">
-<h2>check nilai n_neighboars<a class="headerlink" href="#check-nilai-n-neighboars" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_gscv</span><span class="o">.</span><span class="n">best_params_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n_neighbors&#39;: 6}
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="check-rata-rata-nilai-n-neighboard">
-<h2>check rata-rata nilai n_neighboard<a class="headerlink" href="#check-rata-rata-nilai-n-neighboard" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_gscv</span><span class="o">.</span><span class="n">best_score_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9800000000000001
-</pre></div>
-</div>
-</div>
-</div>
+<section id="hasil">
+<h2>Hasil<a class="headerlink" href="#hasil" title="Permalink to this headline">#</a></h2>
+<p>Hasil yang didapatkan adalah jika menggunakan data sebanyak 20%, labelnya sebanyak 30 dan nilai K yaitu , 3, 7, 10, 15 maka hasil scorenya tetap sama yaitu 0.9666666666666667</p>
 </section>
 </section>
 
